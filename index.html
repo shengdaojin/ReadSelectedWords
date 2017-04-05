@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html>
+  <head>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+   <div class="main">
+
+实际上打心底里，最重要的还就是前两点。少用一点机器根本不用你上 Protobuf 来省出来，消息队列再怎么高效，都没有本质的提升。什么叫质的提升？某厂一个小姑娘带着老板的尚方宝剑去各个业务组敲打一圈，一下子收归几千台空闲机。这就叫质的提升。当我们得知真相之后，正在做各种性能优化的码农的心是崩溃的。和稳定性与交付速度相比，性能和成本绝对不是什么值得在台面上讨论的问题。即便要解决这个问题，也轮不到用技术手段来解决。就像中国的银行有所谓的“窗口指导”一样，领机器的时候卡严一点，比什么都管用。
+
+用户体验也是一样的。互联网企业最常做的事情是灰度，拿一部份用户做小白鼠。另外一个常见的做法是最终一致性，碰上点故障那就是最终也一致不了。个别用户碰到一点奇葩的现象实在是太平常了。老板们关心是大部分用户的体验是不是好，至于长尾的体验，实在是顾不过来的。业务逻辑是不是写得非常完善，事务处理是不是天衣无缝。这个都不是最重要的事情。让系统来解决99.9%的事情，剩下的0.1%，交给RD和客服去处理就好了。这对有手写raft协议的追求的人来说是一件很崩溃的事情，但是这个是对大部分业务来说最经济的选择。不需要你搞一个多完备的东西出来，偶尔出错就出错呗。
+
+那么稳定性和交付速度就是最重要的两个指标了。
+   </div>
+      <iframe id="iframe" name="rightFrame" src="" width=0 height=0 ></iframe>
+	<script type="text/javascript">
+        $(document).ready(function () {
+         $(".main").mouseup(function (e) {
+         var txt;
+          if(window.getSelection){
+               //标准浏览器支持的方法
+                  txt=window.getSelection();
+           }else if(document.selection){
+               //IE浏览器支持的方法
+                   txt=document.selection.createRange().text;
+            }
+             if (txt.toString().length > 1) {
+                var  zhText = encodeURI(txt);
+				var src="http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&text="+zhText;
+				var iframe = document.getElementById("iframe") ;  
+				iframe.src = src;  
+				
+             }
+         });
+   });
+</script>
+</body>
+</html>
